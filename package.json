@@ -1,0 +1,26 @@
+{
+  "name": "es6-js-patters",
+  "version": "0.0.0",
+  "description": "A sample guide of design patters using ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ezekielriva/es6-design-patters.git"
+  },
+  "keywords": [
+    "js",
+    "es6",
+    "babel",
+    "design",
+    "patterns"
+  ],
+  "author": "ezekielriva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ezekielriva/es6-design-patters/issues"
+  },
+  "homepage": "https://github.com/ezekielriva/es6-design-patters"
+}
