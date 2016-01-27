@@ -1,5 +1,3 @@
-import { _ } from "./utils.js";
-
 var Button = function () { }
 Button.prototype.paint = () => { return "[Button .paint]" };
 
