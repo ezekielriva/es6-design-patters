@@ -1,59 +1,28 @@
-"use strict";
+import { _ } from "./utils.js";
 
-var _ = require("./utils.js");
+var Button = function () { }
+Button.prototype.paint = () => { return "[Button .paint]" };
 
-let Button = {
-  paint :function () {
-    throw "Undefined Method";
-  }
+var GUIFactory = function () {}
+GUIFactory.prototype.createButton = () => { return new Button() };
+
+var WinFactory = function () { }
+WinFactory.prototype = Object.create(GUIFactory);
+WinFactory.prototype.createButton = () => { return new WinButton() };
+
+var OSXFactory = function () { }
+OSXFactory.prototype = Object.create(GUIFactory);
+OSXFactory.prototype.createButton = () => { return new OSXButton() };
+
+var WinButton = function () { }
+WinButton.prototype = Object.create(Button);
+WinButton.prototype.paint = () => { return "[WinButton .paint]" };
+
+var OSXButton = function () { }
+OSXButton.prototype = Object.create(Button);
+OSXButton.prototype.paint = () => { return "[OSXButton .paint]" };
+
+module.exports = {
+  WinFactory: WinFactory,
+  OSXFactory: OSXFactory
 }
-
-let GUIFactory = {
-  createButton :() => new Button()
-}
-
-let WinFactory = function () {
-  factory = Object.create(GUIFactory);
-
-  return _.extends(factory, {
-    createButton :() => new WinButton()
-  });
-}
-
-let OSXFactory = function () {
-  factory = Object.create(GUIFactory);
-
-  return _.extends(factory, {
-    createButton :() => new OSXButton()
-  });
-}
-
-let WinButton = function () {
-  return _.extends(Button, {
-    paint :() => console.log('Win button')
-  });
-}
-
-let OSXButton = function () {
-  return _.extends(Button, {
-    paint :() => console.log('OSX button')
-  });
-}
-
-let App = function (factory) {
-  let button = factory.createButton();
-  button.paint();
-  return this;
-}
-
-let args    = process.argv.slice(2),
-    factory
-;
-
-if (args[0] === 'Windows') {
-  factory = new WinFactory();
-} else {
-  factory = new OSXFactory();
-}
-
-let app = new App(factory);
