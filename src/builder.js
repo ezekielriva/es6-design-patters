@@ -4,11 +4,11 @@ var StreetMap = function (builder = {}) {
   this.destination        = builder.destination;
 
   // Optional parameters
-  this.waterColor         = builder.waterColor || "#0000FF";
-  this.landColor          = builder.landColor || "#333333";
-  this.highTrafficColor   = builder.highTrafficColor || "#FF0000";
-  this.mediumTrafficColor = builder.mediumTrafficColor || "#FFFF00";
-  this.lowTrafficColor    = builder.lowTrafficColor || "#00FF00";
+  this.waterColor         = builder.waterColor          || "#0000FF";
+  this.landColor          = builder.landColor           || "#333333";
+  this.highTrafficColor   = builder.highTrafficColor    || "#FF0000";
+  this.mediumTrafficColor = builder.mediumTrafficColor  || "#FFFF00";
+  this.lowTrafficColor    = builder.lowTrafficColor     || "#00FF00";
 };
 
 StreetMap.Builder = function (origin, destination) {
